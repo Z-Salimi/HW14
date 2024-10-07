@@ -7,6 +7,7 @@ interface Iinput {
   onChangeH?: (_: string) => unknown;
   validator?: (_: string) => boolean;
   defaultValue?: string;
+  value ?: string;
 }
 
 export const Inputs: React.FC<Iinput> = ({
@@ -16,6 +17,7 @@ export const Inputs: React.FC<Iinput> = ({
   error,
   validator,
   defaultValue = "",
+  value: mainValue,
 }) => {
   const [value, setValue] = React.useState<string>(defaultValue);
   const [inputError, setInputError] = React.useState<string>("");
@@ -33,6 +35,11 @@ export const Inputs: React.FC<Iinput> = ({
     if (onChangeH) onChangeH(newValue);
   };
 
+  React.useEffect(() => {
+    if (mainValue !== undefined) {
+      setValue(mainValue);
+    }
+  }, [mainValue]);
   return (
     <section className="flex flex-col mb-5 items-center justify-center w-full">
       <div className=" flex flex-col items-center justify-center w-full md:flex-row ">
