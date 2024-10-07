@@ -16,7 +16,10 @@ export const Form = () => {
   });
 
   const [validation, setValidation] = React.useState(false);
-  const [list, setList] = React.useState<FormTypes[]>([]);
+  const [list, setList] = React.useState<FormTypes[]>(() => {
+    const savedList = localStorage.getItem("alarms");
+    return savedList ? JSON.parse(savedList) : [];
+  });
 
   const validationForm = (values: FormTypes) => {
     const valid = Object.values(values).every((value) => value.trim() !== "");
@@ -43,6 +46,11 @@ export const Form = () => {
       console.log("Form is not valid");
     }
   };
+
+
+  React.useEffect(() => {
+    localStorage.setItem("alarms", JSON.stringify(list));
+  }, [list]);
 
   return (
     <section className="flex flex-col items-center gap-y-5 w-full h-screen bg-cyan-900 p-4">
@@ -84,7 +92,7 @@ export const Form = () => {
           Submit
         </button>
       </form>
-      <AllAlarms list={list} />
+      <AllAlarms list={list} setList={setList} />
     </section>
   );
 };
