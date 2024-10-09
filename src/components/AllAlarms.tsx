@@ -6,10 +6,12 @@ export const AllAlarms: React.FC<IAlarmList> = ({ list, setList }) => {
 
   const sortTitle = () => {
     setSort("title");
+    console.log("sorting by title");
   };
 
   const sortTime = () => {
     setSort("time");
+    console.log("sorting by time");
   };
 
   return (
@@ -33,7 +35,8 @@ export const AllAlarms: React.FC<IAlarmList> = ({ list, setList }) => {
           Sort by Time
         </button>
       </div>
-      <AlarmList list={list} setList={setList} sort ={sort}/>
+      <AlarmList list={list} setList={setList} sort={sort} />
+      
     </section>
   );
 };
