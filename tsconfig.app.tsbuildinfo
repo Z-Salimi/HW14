@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/vite-env.d.ts","./src/components/alarmlist.tsx","./src/components/alarmmodal.tsx","./src/components/allalarms.tsx","./src/components/form.tsx","./src/components/inputs.tsx","./src/components/modal.tsx"],"version":"5.6.2"}

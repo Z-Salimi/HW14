@@ -81,7 +81,7 @@ export const AlarmList: React.FC<IAlarmList> = ({ list, setList, sort }) => {
           audio.play();
           setTimeout(() => {
             audio.pause();
-          }, 5000);
+          }, 3000);
         }
       });
     };

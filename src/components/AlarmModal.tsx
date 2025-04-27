@@ -9,7 +9,6 @@ interface IAlarmModal {
 }
 
 export const AlarmModal: React.FC<IAlarmModal> = ({
-  data,
   setData,
   close,
   alarmTime,
